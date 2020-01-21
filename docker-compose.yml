@@ -229,6 +229,8 @@ services:
     volumes:
       - ./code:/code
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - php
     networks:
       - pinpoint
   php:
@@ -240,7 +242,8 @@ services:
       - ./code:/code
       - ./php.ini:/usr/local/etc/php/conf.d/pinpoint.ini
       - agentsock:/agentsock
-    depends_on: phpagent
+    depends_on:
+      - phpagent
     networks:
       - pinpoint
 
@@ -252,9 +255,11 @@ services:
     working_dir: /root/pinpoint-c-agent/collector-agent
     entrypoint: python3
     command: run.py
-    volumes: 
+    volumes:
       - agentsock:/agentsock
       - agentlog:/agentlog
+    depends_on:
+      - pinpoint-collector
     networks:
       - pinpoint
 
