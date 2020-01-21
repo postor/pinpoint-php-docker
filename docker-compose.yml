@@ -255,6 +255,8 @@ services:
     working_dir: /root/pinpoint-c-agent/collector-agent
     entrypoint: python3
     command: run.py
+    environment: 
+      - COLLECTOR_CONFIG=/root/pinpoint-c-agent/collector-agent/conf/collector.conf
     volumes:
       - agentsock:/agentsock
       - agentlog:/agentlog
