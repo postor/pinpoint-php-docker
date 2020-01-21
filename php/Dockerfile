@@ -11,7 +11,7 @@ WORKDIR /root/pinpoint-c-agent/PHP/pinpoint_php_ext
 RUN set -x \\
   && phpize && ./configure && make && make install
 
-WORKDIR /root/pinpoint-c-agent/PHP/collector-agent
+WORKDIR /root/pinpoint-c-agent/collector-agent
 
 RUN pip3 install -r requirements.txt 
 
