@@ -258,7 +258,7 @@ services:
     volumes:
       - agentsock:/agentsock
       - agentlog:/agentlog
-      - phpagent.conf:/root/pinpoint-c-agent/collector-agent/conf/collector.conf
+      - ./phpagent.conf:/root/pinpoint-c-agent/collector-agent/conf/collector.conf
     depends_on:
       - pinpoint-collector
     networks:
